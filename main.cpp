@@ -32,7 +32,7 @@ int main() {
             auto end = std::chrono::high_resolution_clock::now();
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
             std::cout << std::left << std::setw(25) << "Skip List"
-                      << std::setw(15) << formatTime(duration)
+                      << std::setw(15) << (duration)
                       << "\n";
         }
         {
@@ -46,7 +46,7 @@ int main() {
             auto end = std::chrono::high_resolution_clock::now();
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
             std::cout << std::left << std::setw(25) << "Red Black Tree"
-                      << std::setw(15) << formatTime(duration)
+                      << std::setw(15) << (duration)
                       << "\n";
         }
     }

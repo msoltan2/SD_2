@@ -42,36 +42,3 @@ std::string formatNumber(long long number) {
 
   return result;
 }
-
-std::string formatTime(long long milliseconds) {
-  std::ostringstream oss;
-
-  if (milliseconds < 1000) {
-      oss << milliseconds << " ms";
-  } else {
-      double seconds = milliseconds / 1000.0;
-      oss << std::fixed << std::setprecision(2) << seconds << " s";
-  }
-
-  return oss.str();
-}
-
-auto runTask = [](int i,
-                      Test& test,
-                      const std::string& name,
-                      auto func
-                      ) -> Result {
-    auto start = std::chrono::high_resolution_clock::now();
-
-    try {
-        func(test);
-    } catch (...) {
-        std::cerr << "Algorithm " << name << " has thrown\n";
-        return { name, -1 };
-    }
-
-    auto end = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-
-    return { name, duration };
-};
