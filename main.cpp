@@ -5,7 +5,6 @@
 #include <iostream>
 
 int main() {
-    RedBlackTree<int> sk;
     int n;
     std::cin >> n;
 
